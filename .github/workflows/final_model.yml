@@ -45,7 +45,7 @@ jobs:
 
       - name: Run script.py and save full log
         run: |
-          timeout 30m python  script.py 2>&1 | tee output.log
+          timeout 41m python  script.py 2>&1 | tee output.log
 
       - name: Encode full log for email (skip first 5 lines)
         id: encode_log
