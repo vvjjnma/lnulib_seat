@@ -3,7 +3,7 @@ name: Run Script Daily at 6:00 seat_v6
 on:
   schedule:
     # 北京时间 6:00 = UTC 时间 22:00（前一天）
-    - cron: '00 22 * * *'
+    - cron: '50 21 * * *'
   workflow_dispatch:  # 添加这个启用手动触发按钮
 jobs:
   run-script:
