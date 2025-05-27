@@ -1,5 +1,4 @@
-# script_template.py.j2
-#优化v6，实现参数提取至config并自动部署github
+#修复v7可能存在的登录后等到时间过长导致cookie失效问题
 import base64
 from io import BytesIO
 from PIL import Image
@@ -35,7 +34,7 @@ def idtf_imf(account, password, options):
     max_retries = 0  # 设为0表示无限重试
     retry_count = 0
     retry_interval = 3  # 固定重试间隔为3秒
-
+    wait_until_625()
     while max_retries == 0 or retry_count < max_retries:
         driver = None
         try:
@@ -688,7 +687,16 @@ def wait_until_630():
         else:
             #print(f"当前北京时间 {now.strftime('%H:%M:%S')}，未到 6:29，继续等待...")
             time.sleep(1)  # 每 1 秒检查一次
-
+# 等待直到早上 6:30（北京时间）
+def wait_until_625():
+    while True:
+        now = get_beijing_time()
+        if now.hour > 6 or (now.hour == 6 and now.minute >=25 ):
+            #print(f"当前北京时间 {now.strftime('%H:%M:%S')}，已过 6:29，开始执行任务。")
+            break
+        else:
+            #print(f"当前北京时间 {now.strftime('%H:%M:%S')}，未到 6:29，继续等待...")
+            time.sleep(1)  # 每 1 秒检查一次
 
 def random_choose(driver):
     '''try:
