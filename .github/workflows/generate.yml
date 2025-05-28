@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'configs/config.json'  # 仅当此文件发生变化时触发
+      - 'templates/script_template.py.j2'
 
 jobs:
   generate:
