@@ -17,8 +17,8 @@ your_account2,your_password2,start_time2,end_time2,your_preferroom,your_prefersi
 # 账号密码字典
 
 account_password4 = {
-    "241526151113": "000000",
-    "3578657968": "000000"
+    "4032330085": "czl05220623",
+    "4032330092": "000000"
 }
 
 
@@ -771,7 +771,7 @@ import shutil
 def main():
     """主函数：循环登录多个账号并执行操作"""
     sit_avilable, day_type = None, None
-    users = {"自定义": [account_password4, "三楼理科书库", "104"]}
+    users = {"自定义": [account_password4, "三楼理科书库", "30"]}
     user = "自定义"
     total_accounts = list(users[user][0].items())
     reading_room = users[user][1]
